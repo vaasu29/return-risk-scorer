@@ -1,0 +1,83 @@
+<svg viewBox="0 0 1180 620" xmlns="http://www.w3.org/2000/svg" font-family="Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#555"/>
+    </marker>
+  </defs>
+  <rect width="1180" height="620" fill="#ffffff"/>
+
+  <!-- Stage 1: Data -->
+  <rect x="30" y="40" width="190" height="80" rx="10" fill="#eef4ff" stroke="#3b6fd1" stroke-width="1.5"/>
+  <text x="125" y="70" text-anchor="middle" font-size="14" font-weight="bold" fill="#1f3a68">Synthetic Data</text>
+  <text x="125" y="90" text-anchor="middle" font-size="11" fill="#33507e">generate_data.py</text>
+  <text x="125" y="106" text-anchor="middle" font-size="10" fill="#5b6f92">5,000 orders / 1,800 users</text>
+
+  <!-- Stage 2: Feature engineering -->
+  <rect x="270" y="40" width="200" height="80" rx="10" fill="#eefaf0" stroke="#2f9e52" stroke-width="1.5"/>
+  <text x="370" y="65" text-anchor="middle" font-size="14" font-weight="bold" fill="#1c5c31">Feature Engineering</text>
+  <text x="370" y="84" text-anchor="middle" font-size="11" fill="#2b7a44">features.py</text>
+  <text x="370" y="100" text-anchor="middle" font-size="10" fill="#4c8a63">leak-proof, time-shifted</text>
+  <text x="370" y="113" text-anchor="middle" font-size="10" fill="#4c8a63">rolling user/category stats</text>
+
+  <!-- Stage 3: Time-based split -->
+  <rect x="520" y="40" width="210" height="80" rx="10" fill="#fff6e8" stroke="#c9861a" stroke-width="1.5"/>
+  <text x="625" y="65" text-anchor="middle" font-size="14" font-weight="bold" fill="#7a4f0a">Time-Based Split</text>
+  <text x="625" y="84" text-anchor="middle" font-size="11" fill="#93650f">split.py</text>
+  <text x="625" y="100" text-anchor="middle" font-size="10" fill="#a97c2d">train / val / test</text>
+  <text x="625" y="113" text-anchor="middle" font-size="10" fill="#a97c2d">sorted by order date, no shuffle</text>
+
+  <!-- Stage 4: Train + tune -->
+  <rect x="780" y="40" width="200" height="80" rx="10" fill="#fdeef0" stroke="#c73c55" stroke-width="1.5"/>
+  <text x="880" y="65" text-anchor="middle" font-size="14" font-weight="bold" fill="#7c1f30">Train &amp; Tune</text>
+  <text x="880" y="84" text-anchor="middle" font-size="11" fill="#98283e">train.py</text>
+  <text x="880" y="100" text-anchor="middle" font-size="10" fill="#a94456">LogReg + XGBoost</text>
+  <text x="880" y="113" text-anchor="middle" font-size="10" fill="#a94456">tuned on val set only</text>
+
+  <!-- Model comparison box, below train -->
+  <rect x="780" y="150" width="200" height="70" rx="10" fill="#f3edfb" stroke="#7c4fc4" stroke-width="1.5"/>
+  <text x="880" y="173" text-anchor="middle" font-size="13" font-weight="bold" fill="#48278c">Model Comparison</text>
+  <text x="880" y="191" text-anchor="middle" font-size="11" fill="#5f37a8">model_comparison.py</text>
+  <text x="880" y="206" text-anchor="middle" font-size="10" fill="#7452b8">RF / LightGBM / CatBoost / Stacking</text>
+
+  <!-- Stage 5: Calibration -->
+  <rect x="780" y="260" width="200" height="70" rx="10" fill="#fdeef0" stroke="#c73c55" stroke-width="1.5"/>
+  <text x="880" y="283" text-anchor="middle" font-size="13" font-weight="bold" fill="#7c1f30">Calibration</text>
+  <text x="880" y="301" text-anchor="middle" font-size="11" fill="#98283e">CalibratedClassifierCV</text>
+  <text x="880" y="316" text-anchor="middle" font-size="10" fill="#a94456">refit on train+val, 5-fold</text>
+
+  <!-- Stage 6: Test set (single touch) -->
+  <rect x="520" y="260" width="210" height="70" rx="10" fill="#f6f6f6" stroke="#666" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <text x="625" y="283" text-anchor="middle" font-size="13" font-weight="bold" fill="#333">Held-Out Test Set</text>
+  <text x="625" y="301" text-anchor="middle" font-size="10" fill="#555">touched exactly once</text>
+  <text x="625" y="315" text-anchor="middle" font-size="10" fill="#555">ROC-AUC 0.695 · PR-AUC 0.516</text>
+
+  <!-- Stage 7: Cost matrix eval -->
+  <rect x="520" y="370" width="210" height="90" rx="10" fill="#fff6e8" stroke="#c9861a" stroke-width="1.5"/>
+  <text x="625" y="395" text-anchor="middle" font-size="14" font-weight="bold" fill="#7a4f0a">Cost-Matrix Eval</text>
+  <text x="625" y="414" text-anchor="middle" font-size="11" fill="#93650f">cost_eval.py</text>
+  <text x="625" y="430" text-anchor="middle" font-size="10" fill="#a97c2d">capacity-constrained threshold</text>
+  <text x="625" y="444" text-anchor="middle" font-size="10" fill="#a97c2d">8.6% cost reduction @ 15% flagged</text>
+
+  <!-- Stage 8: Streamlit demo -->
+  <rect x="780" y="370" width="200" height="90" rx="10" fill="#eef4ff" stroke="#3b6fd1" stroke-width="1.5"/>
+  <text x="880" y="395" text-anchor="middle" font-size="14" font-weight="bold" fill="#1f3a68">Streamlit Demo</text>
+  <text x="880" y="414" text-anchor="middle" font-size="11" fill="#33507e">app/app.py</text>
+  <text x="880" y="430" text-anchor="middle" font-size="10" fill="#5b6f92">score an order live</text>
+  <text x="880" y="444" text-anchor="middle" font-size="10" fill="#5b6f92">explainability + cold-start handling</text>
+
+  <!-- Arrows -->
+  <line x1="220" y1="80" x2="266" y2="80" stroke="#555" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="470" y1="80" x2="516" y2="80" stroke="#555" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="730" y1="80" x2="776" y2="80" stroke="#555" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="880" y1="120" x2="880" y2="146" stroke="#555" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="880" y1="220" x2="880" y2="256" stroke="#555" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="780" y1="295" x2="734" y2="295" stroke="#555" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="625" y1="330" x2="625" y2="366" stroke="#555" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="730" y1="415" x2="776" y2="415" stroke="#555" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Legend / caption -->
+  <text x="30" y="520" font-size="13" font-weight="bold" fill="#222">Key discipline: the test set (dashed box) is touched exactly once</text>
+  <text x="30" y="540" font-size="12" fill="#444">— all hyperparameter tuning and model comparison happens on the validation set only.</text>
+  <text x="30" y="558" font-size="12" fill="#444">The Model Comparison branch (RF / LightGBM / CatBoost / Stacking) was tested and, after honest</text>
+  <text x="30" y="576" font-size="12" fill="#444">confirmation on test, did not beat calibrated Logistic Regression — so it stayed the final model.</text>
+</svg>

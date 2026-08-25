@@ -1,0 +1,33 @@
+feature,importance
+Product_Category_Clothing,0.20101131
+user_x_category_return_rate,0.07694259
+Payment_Method_COD,0.046559215
+category_prior_return_rate,0.04468562
+discount_x_category_return_rate,0.043477163
+Product_Category_Toys,0.0357968
+price_x_discount_pct,0.031447772
+Shipping_Method_Standard,0.030657995
+user_category_diversity_prior,0.029822106
+Shipping_Method_Next-Day,0.029561916
+Product_Price,0.02952268
+Payment_Method_Credit Card,0.02867024
+user_prior_return_rate,0.027898679
+value_per_item,0.027437177
+Product_Category_Books,0.02698633
+Order_Value,0.026770629
+product_prior_return_rate,0.026733313
+user_avg_order_value_prior,0.02672408
+user_prior_order_count,0.025451178
+user_days_since_last_order,0.024845721
+is_cod_x_high_value,0.023930985
+order_dayofweek,0.023883957
+order_month,0.02225158
+discount_pct,0.021061609
+Payment_Method_Wallet,0.020094141
+Product_Category_Electronics,0.019881023
+Order_Quantity,0.019141618
+Shipping_Method_Express,0.008752547
+is_new_user,0.0
+order_is_weekend,0.0
+Product_Category_Home Appliances,0.0
+Payment_Method_Debit Card,0.0
