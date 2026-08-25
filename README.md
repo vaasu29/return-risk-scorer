@@ -53,7 +53,7 @@ Logistic Regression modestly outperforms XGBoost here. On a dataset of this size
 
 ## Model Selection: Why Logistic Regression, Not Something Fancier
 
-Before finalizing the model, we tested four additional candidates — Random Forest, LightGBM, CatBoost, and a stacked ensemble (Logistic Regression + XGBoost combined via a meta-model) — to check whether a different framework could meaningfully beat our calibrated Logistic Regression. Full comparison code: `src/model_comparison.py`.
+Before finalizing the model, I tested four additional candidates — Random Forest, LightGBM, CatBoost, and a stacked ensemble (Logistic Regression + XGBoost combined via a meta-model) — to check whether a different framework could meaningfully beat our calibrated Logistic Regression. Full comparison code: `src/model_comparison.py`.
 
 **Methodology**: since Logistic Regression and XGBoost had already been evaluated on the test set once, comparing new candidates against them on that same test set would itself be a form of data snooping — repeatedly consulting the test set until something looks best is not meaningfully different from tuning on it. So all four new candidates were compared on the **validation set only**. The single best-looking candidate was then confirmed on the test set exactly once, not searched over.
 
