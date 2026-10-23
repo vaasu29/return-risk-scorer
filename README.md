@@ -1,7 +1,5 @@
 # Return-Risk Scorer
 
-**Track 2: AI Risk Manager — Return-Risk Scorer**
-
 Predicts the probability that an order will be returned, at checkout / return-request time, so a merchant's review team can proactively intervene on the highest-risk orders instead of reacting after the fact.
 
 This system is **strictly defensive**: it only scores and flags orders for human review. It does not take any autonomous action against a customer (no auto-cancellation, no auto-blocking, no account penalties) — every flagged order goes to a human reviewer.
